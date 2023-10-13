@@ -1,0 +1,45 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+<html>
+<head>
+<style>
+ *
+{
+    margin: 0;
+    padding: 0;
+    
+}
+.container
+{
+    width: 140%;
+    height: 90vh;
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url("https://thumbs.dreamstime.com/z/signature-classic-combo-indian-food-butter-chicken-biryani-murgh-makhani-raita-shami-kabab-drinks-gulab-jamun-served-253369088.jpg?w=992");
+    background-position: none;
+    background-size: cover;
+}
+h1
+{
+color:white;
+}
+</style>
+<body>
+<div class="container">
+<div class="contain mb-5">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center">
+            <h1>AMUTHUNAVU CLOUD KITCHEN</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-1">
+        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+            <h2>Place an Order!</h2>
+            <a href="{% url 'order' %}" class="btn btn-outline-primary">Order Now!</a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+{% endblock content %}
+ 

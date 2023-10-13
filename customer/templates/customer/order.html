@@ -1,0 +1,166 @@
+{% extends 'customer/base.html' %}
+
+{% block content %}
+
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-12 col-sm-12 p-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="pt-5">
+                    <div class="row justify-content-right pb-2">
+                        <div class="col-md-2 col-sm-2">
+                            <button id="tittle" class="btn-blue">Breakfast</button>
+                        </div>
+                    </div>
+                    {% for breakfast in breakfasts %}
+                    <div class="row">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ breakfast.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ breakfast.pk }}">
+                                    <label class="form-check-label">{{ breakfast.name }}</label>
+                                    <label for="quantity"></label>
+                                    <input type="number" min ='1'max='30' id="quantity" name="quantity">
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ breakfast.price }}</p>
+                            </div>
+                            <p>{{ breakfast.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                {% endfor %}
+                </div>
+
+                <div class="row justify-content-right pb-2">
+                     <div class="col-md-2 col-sm-2">
+                        <button id="tittle" class="btn-blue">Lunch</button>
+                     </div>
+                </div>
+                <div class="pt-5">
+                    {% for lunch in lunchs %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ lunch.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ lunch.pk }}">
+                                    <label class="form-check-label">{{ lunch.name }}</label>
+                                    <label for="quantity"></label>
+                                    <input type="number" min ='1'max='30' id="quantity" name="quantity">
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ lunch.price }}</p>
+                            </div>
+                            <p>{{ lunch.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                
+                <div class="row justify-content-center pb-5">
+                    <div class="col-md-6 text-center">
+                        <button id="tittle" class="btn-blue">Dinner</button>
+                    </div>
+                </div>
+                <div class="pt-5">
+                    {% for dinner in dinners %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ dinner.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dinner.pk }}">
+                                    <label class="form-check-label">{{ dinner.name }}</label>
+                                    <label for="quantity"></label>
+                                    <input type="number" min ='1'max='30' id="quantity" name="quantity">
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ dinner.price }}</p>
+                            </div>
+                            <p>{{ dinner.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                
+                <div class="row justify-content-center pb-5">
+                     <div class="col-md-6 text-center">
+                        <button id="tittle" class="btn-blue">Drinks</button>
+                    </div>
+                </div>
+                <div class="pt-5">
+                    {% for drink in drinks %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ drink.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
+                                    <label class="form-check-label">{{ drink.name }}</label>
+                                    <label for="quantity"></label>
+                                    <input type="number" min ='1'max='30' id="quantity" name="quantity">
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ drink.price }}</p>
+                            </div>
+                            <p>{{ drink.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                <div class = "form-group pt-3">
+                    <label for ="name">Full Name</label>
+                    <input required class="form-control" type="text" placeholder="Your Name" name="name"/>
+                </div>
+                
+                <div class = "form-group pt-3">
+                    <label for ="name">Email Address</label>
+                    <input required class="form-control" type="text" placeholder="example@gmail.com" name="email"/>
+                </div>
+
+                <div class = "form-group pt-3">
+                    <label for ="name">Street Address</label>
+                    <input required class="form-control" type="text" placeholder="123 street" name="street"/>
+                </div>
+
+                <div class ="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class = "form-group pt-3">
+                            <label for ="name"> City</label>
+                            <input required class="form-control" type="text" placeholder="chennai" name="city"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class = "form-group pt-3">
+                            <label for ="name">Phone no</label>
+                            <input required class="form-control" type="text" placeholder="0000000000" name="phone_no"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class = "form-group pt-3">
+                            <label for ="name">Pin code</label>
+                            <input required class="form-control" type="text" placeholder="600000" name="pin"/>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-dark mt-5">Place Order!</button>
+
+                
+                
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
